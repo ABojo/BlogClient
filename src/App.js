@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Navbar from './Navbar';
 import Post from './Post';
+import Loader from './Loader';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -29,8 +30,9 @@ function App() {
 
   return (
     <div className="container mx-auto max-w-3xl">
+      {isLoading && <Loader />}
       <Navbar />
-      <div>{posts ? buildPosts(posts) : ''}</div>
+      <div>{posts && buildPosts(posts)}</div>
     </div>
   );
 }
