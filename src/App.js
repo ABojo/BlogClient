@@ -21,7 +21,7 @@ function App() {
     const raw = await fetch('https://odingblogapi.herokuapp.com/api/posts');
     const json = await raw.json();
 
-    setPosts(JSON.stringify(json.data.posts));
+    //setPosts(JSON.stringify(json.data.posts));
   };
 
   getPosts();
