@@ -4,7 +4,6 @@ import Post from './Post';
 import Loader from './Loader';
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
   const [posts, setPosts] = useState('');
 
   const buildPosts = (posts) => {
@@ -23,16 +22,14 @@ function App() {
     const json = await raw.json();
 
     setPosts(JSON.stringify(json.data.posts));
-    setIsLoading(false);
   };
 
   getPosts();
 
   return (
     <div className="container mx-auto max-w-3xl">
-      {isLoading && <Loader />}
       <Navbar />
-      <div>{posts && buildPosts(posts)}</div>
+      <div>{posts ? buildPosts(posts) : <Loader />}</div>
     </div>
   );
 }
