@@ -6,7 +6,7 @@ function Post(props) {
         {title}
       </a>
       <p className="text-gray-500 mb-3">{body}</p>
-      <p className="text-gray-400 text-sm mb-3">{`${author} · ${stamp}`}</p>
+      <p className="text-gray-400 text-sm mb-3 block">{`${author} · ${stamp}`}</p>
       <a
         href={`/posts/${id}`}
         className="
@@ -19,6 +19,7 @@ function Post(props) {
 			text-green-900
 			font-bold
 			text-sm
+      inline-block
 		"
       >
         Read More
