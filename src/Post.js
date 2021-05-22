@@ -1,5 +1,5 @@
 function Post(props) {
-  const { title, body, author, stamp } = props;
+  const { id, title, body, author, stamp } = props;
   return (
     <div className="container mb-10 border-l-8 border-blue-500 px-8">
       <a href="/" className="font-bold text-3xl mb-3 block">
@@ -7,7 +7,8 @@ function Post(props) {
       </a>
       <p className="text-gray-500 mb-3">{body}</p>
       <p className="text-gray-400 text-sm mb-3">{`${author} · ${stamp}`}</p>
-      <button
+      <a
+        href={`/posts/${id}`}
         className="
 			bg-green-100
 			hover:bg-green-200
@@ -21,7 +22,7 @@ function Post(props) {
 		"
       >
         Read More
-      </button>
+      </a>
     </div>
   );
 }
