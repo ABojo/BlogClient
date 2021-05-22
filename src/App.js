@@ -6,13 +6,14 @@ import Loader from './Loader';
 const buildPosts = (posts) => {
   return JSON.parse(posts).map((post) => {
     const { body } = post;
+    const ts = new Date(post.timestamp);
     return (
       <Post
         url={`/posts/${post._id}`}
         title={post.title}
         body={`${body.length > 200 ? body.slice(0, 200) : body}...`}
         author={post.author}
-        stamp={post.timestamp}
+        stamp={`${ts.getMonth() + 1}/${ts.getDate()}`}
       />
     );
   });
