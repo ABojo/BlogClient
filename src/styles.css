@@ -16,8 +16,7 @@
   display: inline-block;
   width: 80px;
   height: 80px;
-  position: absolute;
-  top: 50%;
+  position: relative;
   left: 50%;
 }
 .lds-ring div {
@@ -25,7 +24,7 @@
   display: block;
   position: absolute;
 
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   width: 64px;
   height: 64px;
   margin: 8px;

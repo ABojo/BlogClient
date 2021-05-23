@@ -1,6 +1,6 @@
 function Loader() {
   return (
-    <div className="lds-ring">
+    <div className="lds-ring mt-10">
       <div></div>
       <div></div>
       <div></div>
