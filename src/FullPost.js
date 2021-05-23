@@ -23,38 +23,48 @@ const buildPost = (post) => {
   );
 };
 
+const buildComments = () => {
+  return (
+    <div className="bg-gray-100 p-5">
+      <form className="mx-auto">
+        <input
+          type="text"
+          placeholder="Enter your name"
+          className="px-5 py-5 rounded shadow-inner resize-none w-full text-sm block mb-3"
+          required
+        />
+        <textarea
+          placeholder="Enter a comment"
+          className="px-5 py-5 rounded shadow-inner resize-none w-full text-sm block mb-3"
+          required
+        />
+        <input
+          onClick={(e) => e.preventDefault()}
+          type="submit"
+          value="Add Comment"
+          className="rounded font-bold bg-blue-100 hover:bg-blue-200 text-blue-900 p-3 text-sm cursor-pointer transition duration-200 shadow block ml-auto"
+        />
+      </form>
+    </div>
+  );
+};
+
+const buildPostAndComments = (post) => {
+  return (
+    <React.Fragment>
+      {buildPost(post)}
+      {buildComments()}
+    </React.Fragment>
+  );
+};
+
 function FullPost() {
   const [post, setPost] = useState('');
   const { id } = useParams();
 
   getPost(id, setPost);
 
-  return (
-    <div>
-      {post ? buildPost(post) : <Loader />}
-      <div className="bg-gray-100 p-5">
-        <form className="mx-auto">
-          <input
-            type="text"
-            placeholder="Enter your name"
-            className="px-5 py-5 rounded shadow-inner resize-none w-full text-sm block mb-3"
-            required
-          />
-          <textarea
-            placeholder="Enter a comment"
-            className="px-5 py-5 rounded shadow-inner resize-none w-full text-sm block mb-3"
-            required
-          />
-          <input
-            onClick={(e) => e.preventDefault()}
-            type="submit"
-            value="Add Comment"
-            className="rounded font-bold bg-blue-100 hover:bg-blue-200 text-blue-900 p-3 text-sm cursor-pointer transition duration-200 shadow block ml-auto"
-          />
-        </form>
-      </div>
-    </div>
-  );
+  return <div>{post ? buildPostAndComments(post) : <Loader />}</div>;
 }
 
 export default FullPost;
