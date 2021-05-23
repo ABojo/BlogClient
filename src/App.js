@@ -9,10 +9,8 @@ function App() {
     <div className="container mx-auto max-w-3xl">
       <Navbar />
       <Router>
-        <Switch>
-          <Route exact path="/" children={<PostList />} />
-          <Route exact path="/posts/:id" children={<FullPost />} />
-        </Switch>
+        <Route exact path="/" children={<PostList />} />
+        <Route exact path="/posts/:id" children={<FullPost />} />
       </Router>
     </div>
   );
