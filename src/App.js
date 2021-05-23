@@ -1,8 +1,7 @@
-import { useState } from 'react';
 import Navbar from './Navbar';
 import PostList from './PostList';
 import FullPost from './FullPost';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 function App() {
   return (

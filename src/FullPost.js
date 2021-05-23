@@ -13,13 +13,13 @@ const buildPost = (post) => {
   const { title, body, author, timestamp } = JSON.parse(post);
   const ts = new Date(timestamp);
   return (
-    <React.Fragment>
+    <div className="mb-10">
       <h1 className="text-4xl font-bold mb-3">{title}</h1>
       <h2 className="text-gray-400 text-md mb-3">
         {author} · {ts.getMonth() + 1}/{ts.getDate()}
       </h2>
       <p className="text-gray-500 text-xl">{body}</p>
-    </React.Fragment>
+    </div>
   );
 };
 
@@ -29,7 +29,32 @@ function FullPost() {
 
   getPost(id, setPost);
 
-  return <div>{post ? buildPost(post) : <Loader />}</div>;
+  return (
+    <div>
+      {post ? buildPost(post) : <Loader />}
+      <div className="bg-gray-100 p-5">
+        <form className="mx-auto">
+          <input
+            type="text"
+            placeholder="Enter your name"
+            className="px-5 py-5 rounded shadow-inner resize-none w-full text-sm block mb-3"
+            required
+          />
+          <textarea
+            placeholder="Enter a Comment"
+            className="px-5 py-5 rounded shadow-inner resize-none w-full text-sm block mb-3"
+            required
+          />
+          <input
+            onClick={(e) => e.preventDefault()}
+            type="submit"
+            value="Add Comment"
+            className="rounded font-bold bg-blue-100 hover:bg-blue-200 text-blue-900 p-3 text-sm cursor-pointer transition duration-200 shadow block ml-auto"
+          />
+        </form>
+      </div>
+    </div>
+  );
 }
 
 export default FullPost;
