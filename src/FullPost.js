@@ -41,7 +41,7 @@ function FullPost() {
             required
           />
           <textarea
-            placeholder="Enter a Comment"
+            placeholder="Enter a comment"
             className="px-5 py-5 rounded shadow-inner resize-none w-full text-sm block mb-3"
             required
           />
