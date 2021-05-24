@@ -29,6 +29,11 @@ function CommentSection(props) {
     setPopUpMessage(message);
   };
 
+  const clearCommentFields = () => {
+    setCommentBody('');
+    setCommentName('');
+  };
+
   return (
     <React.Fragment>
       <div className="bg-gray-100 p-5 mb-10 rounded">
@@ -61,10 +66,9 @@ function CommentSection(props) {
                   commentBody
                 );
 
-                setCommentName('');
-                setCommentBody('');
-
+                clearCommentFields();
                 setPopUp('Your comment has been successfully posted!', true);
+
                 setComments([...comments, comment]);
               } else {
                 setPopUp('Sorry, you must fill out both fields first!', false);
