@@ -1,6 +1,7 @@
 import React from 'react';
 import formatDate from './utils/formatDate';
 import { useState } from 'react';
+import Message from './Message';
 
 const postComment = async (postId, name, body) => {
   const raw = await fetch('https://odingblogapi.herokuapp.com/api/comments/', {
@@ -20,6 +21,8 @@ function CommentSection(props) {
   const [comments, setComments] = useState(props.comments);
   const [commentName, setCommentName] = useState('');
   const [commentBody, setCommentBody] = useState('');
+  const [popUpMessage, setPopUpMessage] = useState('');
+  const [popUpStatus, setPopUpStatus] = useState(false);
 
   return (
     <React.Fragment>
@@ -55,7 +58,15 @@ function CommentSection(props) {
 
                 setCommentName('');
                 setCommentBody('');
+
+                setPopUpStatus(true);
+                setPopUpMessage(`Your comment has been successfully posted!`);
                 setComments([...comments, comment]);
+              } else {
+                setPopUpStatus(false);
+                setPopUpMessage(
+                  'Sorry you must fill out both fields to submit a comment!'
+                );
               }
             }}
             type="submit"
@@ -64,6 +75,7 @@ function CommentSection(props) {
           />
         </div>
       </div>
+      {popUpMessage && <Message text={popUpMessage} success={popUpStatus} />}
       <div class="mb-10">
         <h1 class="text-3xl mb-3 text-gray-900">
           Comments ({comments.length})
