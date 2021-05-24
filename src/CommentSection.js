@@ -34,6 +34,19 @@ function CommentSection(props) {
     setCommentName('');
   };
 
+  const onAddComment = async () => {
+    if (commentName && commentBody) {
+      const comment = await postComment(postId, commentName, commentBody);
+
+      clearCommentFields();
+      setPopUp('Your comment has been successfully posted!', true);
+
+      setComments([...comments, comment]);
+    } else {
+      setPopUp('Sorry, you must fill out both fields first!', false);
+    }
+  };
+
   const buildCommentBox = () => {
     return (
       <div className="bg-gray-100 p-5 mb-10 rounded">
@@ -58,22 +71,7 @@ function CommentSection(props) {
             required
           />
           <input
-            onClick={async () => {
-              if (commentName && commentBody) {
-                const comment = await postComment(
-                  postId,
-                  commentName,
-                  commentBody
-                );
-
-                clearCommentFields();
-                setPopUp('Your comment has been successfully posted!', true);
-
-                setComments([...comments, comment]);
-              } else {
-                setPopUp('Sorry, you must fill out both fields first!', false);
-              }
-            }}
+            onClick={onAddComment}
             type="submit"
             value="Add Comment"
             className="rounded font-bold bg-blue-100 hover:bg-blue-200 text-blue-900 p-3 text-sm cursor-pointer transition duration-200 shadow block ml-auto"
