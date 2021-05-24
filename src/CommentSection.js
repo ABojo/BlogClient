@@ -34,8 +34,8 @@ function CommentSection(props) {
     setCommentName('');
   };
 
-  return (
-    <React.Fragment>
+  const buildCommentBox = () => {
+    return (
       <div className="bg-gray-100 p-5 mb-10 rounded">
         <div className="mx-auto">
           <input
@@ -80,7 +80,11 @@ function CommentSection(props) {
           />
         </div>
       </div>
-      {popUpMessage && <Message text={popUpMessage} success={popUpStatus} />}
+    );
+  };
+
+  const buildCommentList = () => {
+    return (
       <div class="mb-10">
         <h1 class="text-3xl mb-3 text-gray-900">
           Comments ({comments.length})
@@ -97,6 +101,14 @@ function CommentSection(props) {
           })
           .reverse()}
       </div>
+    );
+  };
+
+  return (
+    <React.Fragment>
+      {buildCommentBox()}
+      {popUpMessage && <Message text={popUpMessage} success={popUpStatus} />}
+      {buildCommentList()}
     </React.Fragment>
   );
 }
