@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Post from './Post';
 import Loader from './Loader';
-import formatDate from './utils/formatDate';
+import formatDate from '../utils/formatDate';
 
 const buildPosts = (posts) => {
   return JSON.parse(posts)

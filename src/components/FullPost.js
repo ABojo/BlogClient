@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import React, { useState } from 'react';
 import Loader from './Loader';
-import formatDate from './utils/formatDate';
+import formatDate from '../utils/formatDate';
 import CommentSection from './CommentSection';
 
 const getPost = async (id, stateSetter) => {
