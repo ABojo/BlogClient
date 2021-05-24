@@ -1,20 +1,20 @@
 import { useState } from 'react';
 import Post from './Post';
 import Loader from './Loader';
+import formatDate from './utils/formatDate';
 
 const buildPosts = (posts) => {
   return JSON.parse(posts)
     .reverse()
     .map((post) => {
-      const { body } = post;
-      const ts = new Date(post.timestamp);
+      const { body, timestamp } = post;
       return (
         <Post
           url={`/posts/${post._id}`}
           title={post.title}
           body={`${body.length > 200 ? body.slice(0, 200) : body}...`}
           author={post.author}
-          stamp={`${ts.getMonth() + 1}/${ts.getDate()}`}
+          stamp={formatDate(timestamp)}
         />
       );
     });

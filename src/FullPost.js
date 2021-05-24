@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import React, { useState } from 'react';
 import Loader from './Loader';
+import formatDate from './utils/formatDate';
 
 const getPost = async (id, stateSetter) => {
   const raw = await fetch(`https://odingblogapi.herokuapp.com/api/posts/${id}`);
@@ -11,12 +12,11 @@ const getPost = async (id, stateSetter) => {
 
 const buildPost = (post) => {
   const { title, body, author, timestamp } = JSON.parse(post);
-  const ts = new Date(timestamp);
   return (
     <div className="mb-10">
       <h1 className="text-4xl font-bold mb-3">{title}</h1>
       <h2 className="text-gray-400 text-md mb-3">
-        {author} · {ts.getMonth() + 1}/{ts.getDate()}
+        {author} · {formatDate(timestamp)}
       </h2>
       <p className="text-gray-500 text-xl">{body}</p>
     </div>
@@ -59,7 +59,7 @@ const buildComments = (post) => {
             <div className="border-l-8 border-blue-500 px-8 mb-3">
               <h1 class="text-xl text-gray-900">{com.name}</h1>
               <h1 class="text-gray-400 text-lg mb-3">{com.body}</h1>
-              <h1 class="text-gray-300">{com.timestamp}</h1>
+              <h1 class="text-gray-300">{formatDate(com.timestamp)}</h1>
             </div>
           );
         })}
