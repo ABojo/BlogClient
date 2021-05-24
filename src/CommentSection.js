@@ -24,6 +24,11 @@ function CommentSection(props) {
   const [popUpMessage, setPopUpMessage] = useState('');
   const [popUpStatus, setPopUpStatus] = useState(false);
 
+  const setPopUp = (message, status) => {
+    setPopUpStatus(status);
+    setPopUpMessage(message);
+  };
+
   return (
     <React.Fragment>
       <div className="bg-gray-100 p-5 mb-10 rounded">
@@ -59,14 +64,10 @@ function CommentSection(props) {
                 setCommentName('');
                 setCommentBody('');
 
-                setPopUpStatus(true);
-                setPopUpMessage(`Your comment has been successfully posted!`);
+                setPopUp('Your comment has been successfully posted!', true);
                 setComments([...comments, comment]);
               } else {
-                setPopUpStatus(false);
-                setPopUpMessage(
-                  'Sorry you must fill out both fields to submit a comment!'
-                );
+                setPopUp('Sorry, you must fill out both fields first!', false);
               }
             }}
             type="submit"
