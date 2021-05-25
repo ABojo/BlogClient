@@ -12,4 +12,4 @@ This website was built with:
   <li><a href='https://github.com/tailwindlabs/tailwindcss'>TailwindCSS</a></li>
 </ul>
 
-Live preview: TBD
+Live preview: https://abojo.github.io/BlogClient/
