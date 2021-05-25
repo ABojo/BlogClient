@@ -10,6 +10,7 @@ const buildPosts = (posts) => {
       const { body, timestamp } = post;
       return (
         <Post
+          key={post._id}
           url={`/posts/${post._id}`}
           title={post.title}
           body={`${body.length > 200 ? body.slice(0, 200) : body}...`}

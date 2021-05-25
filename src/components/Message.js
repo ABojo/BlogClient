@@ -1,6 +1,5 @@
 function Message(props) {
   const { text, success } = props;
-  const color = success ? 'green' : 'red';
   const backgroundColor = success ? 'bg-green-100' : 'bg-red-100';
   const textColor = success ? 'text-green-900' : 'text-red-900';
 
