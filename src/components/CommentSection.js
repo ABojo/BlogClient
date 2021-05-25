@@ -92,8 +92,8 @@ function CommentSection(props) {
             return (
               <div className="border-l-8 border-blue-500 px-8 mb-3">
                 <h1 class="text-xl text-gray-900">{com.name}</h1>
-                <h1 class="text-gray-400 text-lg mb-3">{com.body}</h1>
-                <h1 class="text-gray-300">{formatDate(com.timestamp)}</h1>
+                <h1 class="text-gray-500 text-lg mb-3">{com.body}</h1>
+                <h1 class="text-gray-400">{formatDate(com.timestamp)}</h1>
               </div>
             );
           })
