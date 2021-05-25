@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function Post(props) {
   const { title, body, author, stamp, url } = props;
   return (
@@ -7,10 +9,9 @@ function Post(props) {
       </a>
       <p className="text-gray-500 mb-3">{body}</p>
       <p className="text-gray-400 text-sm mb-3 block">{`${author} · ${stamp}`}</p>
-      <a
-        href={url}
-        className="
-			bg-green-100
+      <Link
+        to={url}
+        className="		bg-green-100
 			hover:bg-green-200
 			transition
 			duration-200
@@ -19,11 +20,10 @@ function Post(props) {
 			text-green-900
 			font-bold
 			text-sm
-      inline-block
-		"
+      inline-block"
       >
         Read More
-      </a>
+      </Link>
     </div>
   );
 }
