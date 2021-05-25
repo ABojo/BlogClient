@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 function App() {
   return (
     <div className="container mx-auto max-w-3xl p-5">
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Navbar />
         <Route exact path="/" children={<PostList />} />
         <Route exact path="/posts/:id" children={<FullPost />} />
