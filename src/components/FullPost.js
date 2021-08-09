@@ -19,7 +19,7 @@ const buildPost = (post) => {
       <h2 className="text-gray-400 text-md mb-3">
         {author} · {formatDate(timestamp)}
       </h2>
-      <p className="text-gray-500 text-xl">{body}</p>
+      <p className="text-gray-500 text-xl break-words">{body}</p>
     </div>
   );
 };

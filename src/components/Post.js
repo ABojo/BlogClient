@@ -7,7 +7,7 @@ function Post(props) {
       <Link to={url} className="font-bold text-3xl mb-3 block">
         {title}
       </Link>
-      <p className="text-gray-500 mb-3">{body}</p>
+      <p className="text-gray-500 mb-3 break-words">{body}</p>
       <p className="text-gray-400 text-sm mb-3 block">{`${author} · ${stamp}`}</p>
       <Link
         to={url}
