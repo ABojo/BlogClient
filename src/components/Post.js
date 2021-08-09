@@ -4,7 +4,7 @@ function Post(props) {
   const { title, body, author, stamp, url } = props;
   return (
     <div className="container mb-10 border-l-8 border-blue-500 px-8">
-      <Link to={url} className="font-bold text-3xl mb-3 block">
+      <Link to={url} className="font-bold text-3xl mb-3 block break-words">
         {title}
       </Link>
       <p className="text-gray-500 mb-3 break-words">{body}</p>
